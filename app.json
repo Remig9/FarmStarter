@@ -1,0 +1,28 @@
+{
+  "expo": {
+    "name": "farmsmarter",
+    "slug": "snack-dfa0c1f7-1e5b-4b01-8abe-420755a98e0c",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/FS.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/FS.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/FS.png",
+        "backgroundColor": "#ffffff"
+      }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    }
+  }
+}
