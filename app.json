@@ -4,14 +4,16 @@
     "slug": "snack-dfa0c1f7-1e5b-4b01-8abe-420755a98e0c",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/FS.png",
+    "icon": "./assets/FSI.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/FS.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true
     },
@@ -19,10 +21,21 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/FS.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyBGv53NEoMm3uPyA9U45ibSl3pOlqkHWN8"
+        }
+      },
+      "package": "com.remite2.snackdfa0c1f71e5b4b018abe420755a98e0c"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "15f24bea-946d-4856-b7c1-8baad4d5ec39"
+      }
     }
   }
 }

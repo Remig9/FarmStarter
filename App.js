@@ -12,15 +12,10 @@ import { Entypo } from "@expo/vector-icons";
 import { FontAwesome } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
 import React, { useEffect, useState } from "react";
-import MapView, {
-  Marker,
-  PROVIDER_GOOGLE,
-  Polyline,
-  Polygon,
-} from "react-native-maps";
+import MapView, { Marker, PROVIDER_GOOGLE, Polyline } from "react-native-maps";
 import MapViewDirections from "react-native-maps-directions";
 import * as Location from "expo-location";
-import Toast from "react-native-toast-message";
+
 import NetInfo from "@react-native-community/netinfo";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import SwipeUpDownModal from "react-native-swipe-modal-up-down";
@@ -53,24 +48,12 @@ export default function App() {
       console.warn("current", location.coords);
       const { latitude, longitude } = location.coords;
 
-      // waypoint.push({
-      //   latitude,
-      //   longitude,
-      // });
       setWaypoint([
         {
           latitude,
           longitude,
         },
       ]);
-
-      // [
-      //   ...waypoint,
-      //   {
-      //     latitude,
-      //     longitude,
-      //   },
-      // ];
 
       setWaypoints([
         {
@@ -144,6 +127,7 @@ export default function App() {
       showToast("Saved");
       setShareModal(false);
     } catch (e) {
+      console.log("error storing data", e);
       // saving error
     }
   };
@@ -191,7 +175,11 @@ export default function App() {
           }}
         >
           {initialRegion && (
-            <MapView style={styles.map} initialRegion={initialRegion}>
+            <MapView
+              style={styles.map}
+              provider={PROVIDER_GOOGLE}
+              initialRegion={initialRegion}
+            >
               {currentLocation && (
                 <Marker
                   coordinate={{
@@ -223,7 +211,7 @@ export default function App() {
               {isPlay ? (
                 <Polyline
                   coordinates={waypoints}
-                  strokeColor={"red"} // fallback for when `strokeColors` is not supported by the map-provider
+                  strokeColor={"red"}
                   strokeWidth={6}
                   fillColor="rgba(255,0,0,0.5)"
                 />
@@ -304,7 +292,6 @@ export default function App() {
       <SwipeUpDownModal
         modalVisible={shareModal}
         PressToanimate={animateModal}
-        //if you don't pass HeaderContent you should pass marginTop in view of ContentModel to Make modal swipeable
         ContentModal={
           <View
             style={{
